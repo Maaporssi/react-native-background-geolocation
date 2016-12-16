@@ -426,6 +426,11 @@ public class BackgroundGeolocationModule extends ReactContextBaseJavaModule impl
         success.invoke(logEntriesArray);
     }
 
+    @ReactMethod
+    public void finish() {
+      // Nothing to do on Android
+    }
+
     private void sendEvent(ReactContext reactContext, String eventName, @Nullable WritableMap params) {
         reactContext
                 .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
@@ -462,6 +467,8 @@ public class BackgroundGeolocationModule extends ReactContextBaseJavaModule impl
         currentActivity.stopService(new Intent(currentActivity, LocationService.class));
         mIsServiceRunning = false;
     }
+
+
 
     void doBindService() {
         // Establish a connection with the service.  We use an explicit

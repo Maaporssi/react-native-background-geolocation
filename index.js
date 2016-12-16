@@ -120,6 +120,10 @@ var BackgroundGeolocation = {
     }
 
     return DeviceEventEmitter.addListener(event, callbackFn);
+  },
+
+  finish: function() {
+    RNBackgroundGeolocation.finish();
   }
 };
 

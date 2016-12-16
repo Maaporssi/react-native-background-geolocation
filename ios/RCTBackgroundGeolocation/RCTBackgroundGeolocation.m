@@ -88,7 +88,7 @@ RCT_EXPORT_METHOD(stop:(RCTResponseSenderBlock)success failure:(RCTResponseSende
     }
 }
 
-RCT_EXPORT_METHOD(finish:(int)taskId)
+RCT_EXPORT_METHOD(finish)
 {
     RCTLogInfo(@"RCTBackgroundGeolocation #finish");
     [locationManager finish];
