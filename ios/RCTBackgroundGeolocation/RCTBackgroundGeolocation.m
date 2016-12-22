@@ -94,8 +94,9 @@ RCT_EXPORT_METHOD(finish)
     [locationManager finish];
 }
 
-RCT_EXPORT_METHOD(isLocationEnabled:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(isLocationEnabled:(RCTResponseSenderBlock)callback failure:(RCTResponseSenderBlock)failure)
 {
+    // Failure is ignored, it is for android compatibility
     RCTLogInfo(@"RCTBackgroundGeolocation #isLocationEnabled");
     callback(@[@([locationManager isLocationEnabled])]);
 }
