@@ -296,7 +296,9 @@ enum {
 - (BOOL) isLocationEnabled
 {
     if ([CLLocationManager respondsToSelector:@selector(locationServicesEnabled)]) { // iOS 4.x
-        return [CLLocationManager locationServicesEnabled];
+        if ([CLLocationManager locationServicesEnabled]) {
+            return [CLLocationManager authorizationStatus]!=kCLAuthorizationStatusDenied;
+        }
     }
 
     return NO;
